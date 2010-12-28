@@ -3,7 +3,7 @@ require 'java'
 
 class TestAssertRaiseWithNativeException < Test::Unit::TestCase
   java_import('java.util.NoSuchElementException') { 'FooError' }
-  java_import 'java.util.MissingResourceException'
+
   def test_native_exception_with_renaming
     assert_raise(FooError) {
     raise FooError.new
