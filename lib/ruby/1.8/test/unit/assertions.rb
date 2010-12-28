@@ -87,7 +87,8 @@ EOT
       def _check_exception_class(args) # :nodoc:
         args.partition do |klass|
           next if klass.instance_of?(Module)
-          assert(Exception >= klass, "Should expect a class of exception, #{klass}")
+          assert(Exception >= klass || Java::JavaLang::Exception >= klass,
+                 "Should expect a class of exception, #{klass}")
           true
         end
       end
